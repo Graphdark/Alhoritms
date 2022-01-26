@@ -1,9 +1,10 @@
 ﻿// ConsoleApplication8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include <iostream>
+#include <stdio.h>
 
-int main()
+int main (void)
 {
-    std::cout << "Hello World!\n";
+  puts ("Hello, World!");
+  return 0;
 }
