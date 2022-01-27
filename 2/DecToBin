@@ -1,0 +1,124 @@
+//Из Dec в bin
+#include <iostream>
+
+void dec_to_bin(int n) {
+    if (n >= 2)
+        dec_to_bin(n / 2);// ConsoleApplication8.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+#pragma warning(disable : 4996)
+
+const int board[8][8] =
+{ {0, 0, 1, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 1, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0} };
+
+void dec_to_bin(int n)
+{
+    if (n >= 2)
+        dec_to_bin(n / 2);
+    std::cout << n % 2;
+}
+
+// B степень через цикл
+void DegreeLinear(void)
+{
+    double a;
+    int i, n;
+    double result;
+
+    printf("Enter required number and degree: ");
+    scanf("%lf %i", &a, &n);
+
+    result = a;
+
+    for (i = 1; i < n; i++) {
+        result = result * a;
+    }
+
+    printf("Linear result is %lf\n", result);
+}
+
+int routes(int x, int y) {
+    if (x == 0 && y == 0)
+        return 0;
+    if (x == 0 ^ y == 0)
+        return 1;
+    else
+        return routes(x, y - 1) + routes(x - 1, y);
+}
+
+double DegreeWithRecursion(double number, int degree) {
+    if (degree == 1) {
+        return number;
+    }
+    else {
+        return number * DegreeWithRecursion(number, degree -= 1);
+    }
+}
+
+void DegreeRecursion(void) {
+    double a, result;
+    int n;
+
+    printf("Enter required number and degree: ");
+    scanf("%lf %i", &a, &n);
+
+    result = DegreeWithRecursion(a, n);
+
+    printf("Linear result is %lf\n", result);
+}
+
+void raiseToDegreeRecursionWithEvenProperty(void) 
+{
+    double a, result;
+    int n;
+
+    printf("Enter required number and degree: ");
+    scanf("%lf %i", &a, &n);
+
+    if (n % 2 == 0) {
+        result = DegreeWithRecursion(a, n / 2);
+        result = pow(result, 2);
+    }
+    else {
+        result = DegreeWithRecursion(a, n);
+    }
+    printf("Linear result is %lf\n", result);
+}
+
+int main() 
+{
+    int n;
+    std::cout << "\n\nn -> ";
+    std::cin >> n;
+    std::cout << "\n\nBin = ";
+    dec_to_bin(n);
+    std::cout << "\n";
+    DegreeLinear();
+    DegreeRecursion();
+    raiseToDegreeRecursionWithEvenProperty();
+    for (int y = 0; y < 8; y++) {
+        for (int x = 0; x < 8; x++)
+            printf("%5d", routes(x, y));
+        printf("\n");
+    }
+    return 0;
+}
+    std::cout << n % 2;
+}
+
+int main() {
+    int n;
+    std::cout << "\n\nn -> ";
+    std::cin >> n;
+    std::cout << "\n\nBin = ";
+    dec_to_bin(n);
+    return 0;
+}
